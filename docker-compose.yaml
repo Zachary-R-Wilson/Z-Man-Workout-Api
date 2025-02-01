@@ -1,0 +1,49 @@
+services:
+  workoutapi:
+    build: ./WorkoutApi
+    environment:
+      - DB_DATASOURCE=${DB_DATASOURCE}
+      - DB_INITIALCATALOG=${DB_INITIALCATALOG}
+      - DB_USERID=${DB_USERID}
+      - DB_PASSWORD=${DB_PASSWORD}
+      - JWT_ISSUER=${JWT_ISSUER}
+      - JWT_AUDIENCE=${JWT_AUDIENCE}
+      - JWT_SECRETKEY=${JWT_SECRETKEY}
+    ports:
+      - "8080:8080"
+      - "8081:8081"
+    networks:
+      - workoutnetwork
+    depends_on:
+      - workoutdb
+
+  # workoutclient:
+  #   build: ./WorkoutClient
+  #   ports:
+  #     - "8080:80"
+  #   networks:
+  #     - workoutnetwork
+    
+  workoutdb:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: workoutdb
+    environment:
+      - SA_PASSWORD=${SA_PASSWORD}
+      - ACCEPT_EULA=Y
+    ports:
+      - "1433:1433"
+    networks:
+      - workoutnetwork
+    volumes:
+      - WorkoutData:/var/opt/mssql
+
+networks:
+  workoutnetwork:
+    ipam:
+      driver: default
+      config:
+        - subnet: "172.18.0.0/16"
+
+volumes:
+  WorkoutData:
+    driver: local
