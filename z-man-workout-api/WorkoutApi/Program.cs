@@ -4,10 +4,12 @@ using Microsoft.Data.SqlClient;
 using Microsoft.IdentityModel.Tokens;
 using System.Data;
 using System.Text;
-using WorkoutApi.Repositories;
-using WorkoutApi.Services;
+//using WorkoutApp.Repositories.Repositories;
+//using WorkoutApp.Services;
 
 var builder = WebApplication.CreateBuilder(args);
+
+builder.AddServiceDefaults();
 
 var configuration = new ConfigurationBuilder()
     .SetBasePath(builder.Environment.ContentRootPath)
@@ -55,15 +57,15 @@ builder.Services.AddCors(options =>
 });
 
 // Add Service and Repository Layers
-builder.Services.AddScoped<IMaxesRepository, MaxesRepository>();
-builder.Services.AddScoped<IMaxesService, MaxesService>();
-builder.Services.AddScoped<ITrackingRepository, TrackingRepository>();
-builder.Services.AddScoped<ITrackingService, TrackingService>();
-builder.Services.AddScoped<IAuthRepository, AuthRepository>();
-builder.Services.AddScoped<IAuthService, AuthService>();
-builder.Services.AddScoped<IWorkoutRepository, WorkoutRepository>();
-builder.Services.AddScoped<IWorkoutService, WorkoutService>();
-builder.Services.AddScoped<IJwtHelper, JwtHelper>();
+//builder.Services.AddScoped<IMaxesRepository, MaxesRepository>();
+//builder.Services.AddScoped<IMaxesService, MaxesService>();
+//builder.Services.AddScoped<ITrackingRepository, TrackingRepository>();
+//builder.Services.AddScoped<ITrackingService, TrackingService>();
+//builder.Services.AddScoped<IAuthRepository, AuthRepository>();
+//builder.Services.AddScoped<IAuthService, AuthService>();
+//builder.Services.AddScoped<IWorkoutRepository, WorkoutRepository>();
+//builder.Services.AddScoped<IWorkoutService, WorkoutService>();
+//builder.Services.AddScoped<IJwtHelper, JwtHelper>();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
@@ -74,6 +76,8 @@ builder.Services.AddControllers(options =>
 });
 
 var app = builder.Build();
+
+app.MapDefaultEndpoints();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
