@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorkoutApp.Services", "Work
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorkoutApp.Services.DTOs", "WorkoutApp.Services.DTOs\WorkoutApp.Services.DTOs.csproj", "{330552E8-1F0F-48C9-9F0E-FB9093881862}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorkoutApp.API.Models", "WorkoutApi.API.Models\WorkoutApp.API.Models.csproj", "{B828D54E-1E77-4433-BB4C-0FAB42EE53F6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -47,6 +49,10 @@ Global
 		{330552E8-1F0F-48C9-9F0E-FB9093881862}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{330552E8-1F0F-48C9-9F0E-FB9093881862}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{330552E8-1F0F-48C9-9F0E-FB9093881862}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B828D54E-1E77-4433-BB4C-0FAB42EE53F6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B828D54E-1E77-4433-BB4C-0FAB42EE53F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B828D54E-1E77-4433-BB4C-0FAB42EE53F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B828D54E-1E77-4433-BB4C-0FAB42EE53F6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
